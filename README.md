@@ -2,9 +2,8 @@
 
 SmartATM is a full-stack bank account management app built with Node.js, Express, and vanilla HTML/CSS/JavaScript.
 
-## 🌐 Live Demo
+🌐 **Live Demo:** https://smartatm-bdjn.onrender.com/
 
-[Open SmartATM](YOUR-RENDER-URL)
 
 ## Features
 
