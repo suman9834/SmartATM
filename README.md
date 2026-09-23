@@ -23,6 +23,7 @@ SmartATM is a full-stack bank account management app built with Node.js, Express
 From the project root:
 
 ```bash
+git clone : https://github.com/suman9834/SmartATM.git
 cd backend
 npm install
 npm start
@@ -47,7 +48,7 @@ Open <http://localhost:5000>. The Express server serves both the API and the fro
 2. In Render, choose **New > Blueprint** and select the GitHub repository.
 3. Render detects `render.yaml` and creates the `smartatm` web service.
 4. Wait for the build and deployment to finish.
-5. Open the generated `https://smartatm-xxxx.onrender.com` URL.
+5. Open the generated `https://smartatm-bdjn.onrender.com/` URL.
 
 The service uses Render's `PORT` environment variable and serves the frontend and API from the same URL.
 
