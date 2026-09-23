@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SmartATM — Bank Account</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- Sidebar: account list -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">§</span>
+        <span class="brand-name">SmartATM</span>
+      </div>
+
+      <form id="new-account-form" class="new-account">
+        <input type="text" id="new-name" placeholder="Account holder name" required />
+        <input type="number" id="new-balance" placeholder="Opening balance" min="0" step="0.01" />
+        <button type="submit">Open account</button>
+      </form>
+
+      <div class="account-list" id="account-list">
+        <!-- accounts injected here -->
+      </div>
+    </aside>
+
+    <!-- Main: passbook view -->
+    <main class="passbook" id="passbook">
+      <div class="empty-state" id="empty-state">
+        <p class="eyebrow">No account selected</p>
+        <h1>Open or choose an account<br/>to view its passbook.</h1>
+      </div>
+
+      <div class="passbook-content" id="passbook-content" hidden>
+        <header class="passbook-header">
+          <div>
+            <p class="eyebrow" id="holder-label">Account holder</p>
+            <h1 id="holder-name">—</h1>
+          </div>
+          <div class="header-actions">
+            <button type="button" class="icon-button" id="export-button" title="Export statement as CSV" aria-label="Export statement as CSV">↓</button>
+            <button type="button" class="icon-button danger" id="delete-button" title="Close account" aria-label="Close account">×</button>
+            <div class="seal">✓</div>
+          </div>
+        </header>
+
+        <div class="balance-card">
+          <p class="balance-label">Current balance</p>
+          <p class="balance-figure"><span>₹</span><span id="balance-amount">0.00</span></p>
+        </div>
+
+          <section class="summary" aria-label="Transaction summary">
+            <div class="summary-card">
+              <span class="summary-label">Total deposits</span>
+              <strong id="total-deposits">₹0.00</strong>
+            </div>
+            <div class="summary-card">
+              <span class="summary-label">Total withdrawals</span>
+              <strong id="total-withdrawals">₹0.00</strong>
+            </div>
+            <div class="summary-card">
+              <span class="summary-label">Transactions</span>
+              <strong id="transaction-count">0</strong>
+            </div>
+          </section>
+
+        <div class="actions">
+          <form class="action-form" id="deposit-form">
+            <label>Deposit</label>
+            <div class="input-row">
+              <input type="number" id="deposit-amount" placeholder="Amount" min="0" step="0.01" />
+              <button type="submit" class="btn deposit">+ Deposit</button>
+            </div>
+          </form>
+          <form class="action-form" id="withdraw-form">
+            <label>Withdraw</label>
+            <div class="input-row">
+              <input type="number" id="withdraw-amount" placeholder="Amount" min="0" step="0.01" />
+              <button type="submit" class="btn withdraw">− Withdraw</button>
+            </div>
+          </form>
+        </div>
+
+        <p class="error-message" id="error-message" hidden></p>
+
+        <section class="ledger">
+          <div class="ledger-head">
+            <span>Entry</span>
+            <span>Amount</span>
+            <span>Balance</span>
+            <span>Date</span>
+          </div>
+          <div class="ledger-body" id="ledger-body">
+            <!-- transaction rows injected here -->
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

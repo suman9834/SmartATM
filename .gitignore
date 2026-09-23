@@ -1,0 +1,12 @@
+# Dependencies
+backend/node_modules/
+
+# Local account data
+backend/accounts.json
+*-statement.csv
+
+# Environment and local tooling
+.env
+.env.*
+!.env.example
+.vscode/
